@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sweet Plans</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(120deg,#f6c1d0,#e2b6ff,#ffc0d6);
+  background-size:300% 300%;
+  animation:bgMove 8s ease infinite;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+body::before{
+  content:"💖 💗 💘 💕 💝 💞 💓";
+  position:fixed;
+  left:-200px;
+  top:0;
+  font-size:26px;
+  opacity:.2;
+  animation:floatHearts 15s linear infinite;
+  white-space:nowrap;
+}
+
+@keyframes floatHearts{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(150vw);}
+}
+
+/* CARD */
+.card{
+  width:100%;
+  max-width:820px;
+  background:rgba(255,255,255,0.55);
+  backdrop-filter:blur(14px);
+  border-radius:32px;
+  padding:45px 35px;
+  text-align:center;
+  box-shadow:0 40px 90px rgba(0,0,0,0.18);
+  position:relative;
+  animation:fadeIn 1.5s ease;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:32px;
+  background:linear-gradient(45deg,#ff4d8b,#e88cff,#ffb6d9);
+  filter:blur(18px);
+  opacity:.3;
+  z-index:-1;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.hearts{
+  position:absolute;
+  top:-16px;
+  left:0;
+  width:100%;
+  text-align:center;
+  font-size:28px;
+  opacity:.6;
+  letter-spacing:10px;
+}
+
+/* tabs */
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:28px;
+}
+
+.tabs a{
+  text-decoration:none;
+  padding:10px 20px;
+  border-radius:30px;
+  border:1px solid #ff9ab6;
+  background:white;
+  color:#c0145a;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
+}
+
+.tabs a:hover{
+  transform:scale(1.08);
+  background:#ffe0ec;
+}
+
+.tabs a.active{
+  background:linear-gradient(45deg,#ff4d8b,#c0145a);
+  color:white;
+  border:none;
+  box-shadow:0 10px 20px rgba(192,20,90,0.3);
+}
+
+/* title */
+h1{
+  font-size:clamp(28px,5vw,40px);
+  color:#b10b4f;
+  margin:10px 0 15px;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 8px #ff90c0;}
+  to{text-shadow:0 0 18px #ff2e83;}
+}
+
+p{
+  font-size:18px;
+  color:#6b2b44;
+  margin-bottom:25px;
+}
+
+/* plan cards */
+.plans{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.plan{
+  background:white;
+  padding:16px 24px;
+  border-radius:20px;
+  font-size:16px;
+  color:#5e2036;
+  min-width:190px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:.3s;
+  cursor:pointer;
+}
+
+.plan:hover{
+  transform:scale(1.1) rotate(-1deg);
+  background:#ffe3ef;
+}
+
+.plan.active{
+  background:linear-gradient(45deg,#ff4d8b,#c0145a);
+  color:white;
+  transform:scale(1.1);
+}
+
+/* message box */
+.message{
+  margin-top:10px;
+  padding:16px;
+  background:#f1f1f1;
+  border-radius:18px;
+  color:#5e2036;
+  opacity:0;
+  transform:translateY(10px);
+  transition:.5s;
+}
+
+.message.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* confetti */
+.confetti{
+  position:absolute;
+  width:8px;
+  height:12px;
+  animation:fall 1s linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(250px) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* next button */
+.next{
+  display:inline-block;
+  margin-top:25px;
+  padding:15px 32px;
+  border-radius:40px;
+  background:linear-gradient(45deg,#ff4d8b,#c0145a);
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:16px;
+  box-shadow:0 12px 25px rgba(192,20,90,0.35);
+  transition:.3s;
+}
+
+.next:hover{transform:scale(1.1);}
+
+@media(max-width:500px){
+  p{font-size:16px;}
+  .plan{min-width:140px;font-size:14px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+
+<div class="hearts">❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️</div>
+
+<div class="tabs">
+<a href="index.html">Love Letter</a>
+<a class="active">Sweet Plans</a>
+<a href="memory.html">Memory Lane</a>
+<a href="question.html">Final Question</a>
+<a href="celebration.html">Celebration</a>
+</div>
+
+<h1>Sweet Plans for Us 🍰</h1>
+
+<p>Pick a dreamy date idea and watch the magic happen.</p>
+
+<div class="plans">
+<div class="plan">✨ Starlit dinner</div>
+<div class="plan">🌅 Sunset walk</div>
+<div class="plan">🎬 Cozy movie night</div>
+<div class="plan">🧺 Picnic with roses</div>
+</div>
+
+<div class="message" id="message"></div>
+
+<a href="memory.html" class="next">Next: Memory Lane ✨</a>
+
+</div>
+
+<script>
+const plans = document.querySelectorAll(".plan");
+const msg = document.getElementById("message");
+const card = document.getElementById("card");
+
+const texts = [
+"Perfect choice! Our starlit dinner will be unforgettable 💕",
+"A sunset walk with you sounds magical already 🌅💖",
+"Movie night + cuddles = best date ever 🎬💗",
+"A picnic with roses and laughter awaits us 🧺🌹"
+];
+
+plans.forEach((plan,i)=>{
+  plan.onclick=()=>{
+    plans.forEach(p=>p.classList.remove("active"));
+    plan.classList.add("active");
+
+    msg.innerText=texts[i];
+    msg.classList.add("show");
+
+    confetti();
+  }
+});
+
+function confetti(){
+  for(let i=0;i<30;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"%";
+    c.style.background=["#ff4d8b","#ffd166","#ff9ab6","#e88cff"][Math.floor(Math.random()*4)];
+    card.appendChild(c);
+    setTimeout(()=>c.remove(),1000);
+  }
+}
+</script>
+
+</body>
+</html>

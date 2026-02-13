@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Celebration</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif;}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(#e8b6c3,#dcaab8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  overflow:hidden;
+}
+
+/* floating hearts background */
+.heart{
+  position:absolute;
+  font-size:22px;
+  animation:float 8s linear infinite;
+  opacity:.4;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+
+/* card */
+.card{
+  width:100%;
+  max-width:820px;
+  background:#f6e6eb;
+  border-radius:28px;
+  padding:40px 30px 45px;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(0,0,0,0.12);
+  position:relative;
+  z-index:2;
+}
+
+/* tabs */
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.tabs a{
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:30px;
+  border:1px solid #f3a1b8;
+  background:white;
+  color:#c0145a;
+  font-weight:600;
+  font-size:14px;
+}
+
+.tabs a.active{
+  background:linear-gradient(45deg,#ff4d8b,#c0145a);
+  color:white;
+  border:none;
+  box-shadow:0 6px 15px rgba(192,20,90,0.25);
+}
+
+/* text */
+h1{
+  font-size:clamp(26px,5vw,34px);
+  color:#5e2036;
+  margin-bottom:15px;
+}
+
+p{
+  font-size:18px;
+  color:#6b2b44;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+
+/* button */
+.btn{
+  margin-top:15px;
+  padding:14px 28px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(45deg,#ff4d8b,#c0145a);
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(192,20,90,0.25);
+}
+
+@media(max-width:500px){
+  p{font-size:16px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- floating hearts generator -->
+<script>
+for(let i=0;i<25;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(5+Math.random()*5)+"s";
+  h.style.fontSize=(18+Math.random()*20)+"px";
+  document.body.appendChild(h);
+}
+</script>
+
+<div class="card">
+
+<div class="tabs">
+<a href="index.html">Love Letter</a>
+<a href="plans.html">Sweet Plans</a>
+<a href="memory.html">Memory Lane</a>
+<a href="question.html">Final Question</a>
+<a class="active">Celebration</a>
+</div>
+
+<h1>We’re Officially Valentine’s 💞</h1>
+
+<p>
+My heart is celebrating you, Neha. Every beat says your name,
+and every dream is sweeter because you’re in it.
+Thank you for choosing us — today and always.
+</p>
+
+<p>
+Let’s make this day unforgettable, hand in hand. 🌹✨
+</p>
+
+<a href="index.html">
+<button class="btn">Replay the story 💌</button>
+</a>
+
+</div>
+
+</body>
+</html>

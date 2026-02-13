@@ -1,0 +1,94 @@
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(#f3c6d4,#e7b5c4);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  width:95%;
+  max-width:900px;
+  background:#f6e6eb;
+  border-radius:25px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  position:relative;
+}
+
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.tabs a{
+  text-decoration:none;
+  padding:10px 20px;
+  border-radius:30px;
+  border:1px solid #f09ab3;
+  background:white;
+  color:#c0145a;
+  font-weight:bold;
+}
+
+.tabs a.active{
+  background:linear-gradient(45deg,#ff4d8b,#c0145a);
+  color:white;
+  border:none;
+}
+
+h1{
+  font-size:clamp(28px,5vw,48px);
+  color:#b20c4d;
+}
+
+p{
+  font-size:18px;
+  color:#6b2b44;
+  line-height:1.6;
+  max-width:650px;
+  margin:auto;
+}
+
+.btn{
+  margin-top:20px;
+  padding:14px 28px;
+  border-radius:40px;
+  border:none;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(45deg,#ff4d8b,#c0145a);
+  color:white;
+}
+
+.yesno{
+  margin-top:20px;
+}
+
+.yesno button{
+  padding:12px 28px;
+  margin:10px;
+  font-size:18px;
+  border:none;
+  border-radius:40px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.yes{background:#ff4d8b;color:white;}
+.no{background:#333;color:white;position:absolute;}
+
+.result{
+  display:none;
+  font-size:30px;
+  font-weight:bold;
+  color:#b20c4d;
+  margin-top:20px;
+}
